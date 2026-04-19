@@ -1,81 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Birthday Surprise 🎉</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Comic Sans MS', cursive;
-      text-align: center;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      overflow: hidden;
-    }
+<meta charset="UTF-8">
+<title>Special Surprise 🎁</title>
 
-    h1 {
-      margin-top: 50px;
-      font-size: 3em;
-      color: #fff;
-      animation: pop 1s ease-in-out infinite alternate;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  background: radial-gradient(circle, #ffdde1, #ee9ca7);
+  overflow: hidden;
+}
 
-    p {
-      font-size: 1.5em;
-      color: #fff;
-    }
+.container {
+  margin-top: 80px;
+}
 
-    @keyframes pop {
-      from { transform: scale(1); }
-      to { transform: scale(1.1); }
-    }
+h1 {
+  font-size: 2.5em;
+  color: white;
+}
 
-    .btn {
-      margin-top: 30px;
-      padding: 15px 30px;
-      font-size: 18px;
-      border: none;
-      border-radius: 30px;
-      background: #fff;
-      color: #ff4e50;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  color: #ff4e50;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    .btn:hover {
-      background: #ff4e50;
-      color: white;
-    }
+button:hover {
+  background: #ff4e50;
+  color: white;
+}
 
-    .hidden {
-      display: none;
-    }
+.hidden {
+  display: none;
+}
 
-    .message {
-      font-size: 2em;
-      margin-top: 20px;
-      color: yellow;
-    }
-  </style>
+.message {
+  margin-top: 20px;
+  font-size: 2em;
+  color: yellow;
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.heart {
+  position: absolute;
+  color: red;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(100vh);}
+  100% {transform: translateY(-10vh);}
+}
+</style>
 </head>
 
 <body>
 
-  <h1>🎉 Happy Birthday 🎂</h1>
-  <p>Click below for your surprise 😍</p>
+<div class="container">
+  <h1>🎉 Hey Bestie 💖</h1>
+  <p style="color:white;">Tap for your surprise 👇</p>
 
-  <button class="btn" onclick="showSurprise()">Open Surprise 🎁</button>
+  <button onclick="showSurprise()">Open 🎁</button>
 
   <div id="surprise" class="hidden">
-    <p class="message">💖 You are the best friend ever! 💖</p>
-    <p class="message">May your day be full of happiness 🥳</p>
+    <p class="message">🎂 Happy Birthday Mittu 🎂</p>
+    <p class="message">Tu meri life ka best part hai 💕</p>
+    <p class="message">Stay खुश हमेशा 🥳</p>
   </div>
+</div>
 
-  <script>
-    function showSurprise() {
-      document.getElementById("surprise").classList.remove("hidden");
-    }
-  </script>
+<script>
+function showSurprise() {
+  document.getElementById("surprise").classList.remove("hidden");
+
+  // hearts animation
+  setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }, 300);
+}
+</script>
 
 </body>
 </html>
